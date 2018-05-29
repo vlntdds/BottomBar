@@ -1,20 +1,10 @@
-[![Build Status](https://travis-ci.org/roughike/BottomBar.svg?branch=master)](https://travis-ci.org/roughike/BottomBar) [![Coverage Status](https://coveralls.io/repos/github/roughike/BottomBar/badge.svg?branch=development)](https://coveralls.io/github/roughike/BottomBar?branch=master) [![Download](https://api.bintray.com/packages/roughike/maven/bottom-bar/images/download.svg)](https://bintray.com/roughike/maven/bottom-bar/_latestVersion)
+[![Build Status](https://travis-ci.org/vlntdds/BottomBar.svg?branch=master)](https://travis-ci.org/vlntdds/BottomBar) [![Coverage Status](https://coveralls.io/repos/github/vlntdds/BottomBar/badge.svg?branch=development)](https://coveralls.io/github/vlntdds/BottomBar?branch=master) [![](https://jitpack.io/v/vlntdds/BottomBar.svg)](https://jitpack.io/#vlntdds/BottomBar)
 
 <img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/shy-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/shifting-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/screenshot_tablet.png" width="33%" />
 
-## Version 2.0 released!
+[How to contribute](https://github.com/vlntdds/BottomBar/blob/master/README.md#contributions)
 
-[The latest version before that can be found in the v1 branch](https://github.com/roughike/BottomBar/tree/v1)
-
-* Cleaner code and better APIs
-* No more unnecessary stuff or spaghetti mess
-* Now the look, feel and behavior is defined in XML, as it should be
-* No more nasty regressions, thanks to the automated tests
-* **Everything is a little different compared to earlier, but it's for the greater good!**
-
-[How to contribute](https://github.com/roughike/BottomBar/blob/master/README.md#contributions)
-
-[Changelog](https://github.com/roughike/BottomBar/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/vlntdds/BottomBar/blob/master/CHANGELOG.md)
 
 ## What?
 
@@ -28,7 +18,7 @@ You can add items by **writing a XML resource file**.
 
 The icons must be fully opaque, solid black color, 24dp and **with no padding**. For example, [with Android Asset Studio Generic Icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-generic.html), select "TRIM" and make sure the padding is 0dp. Here's what your icons should look like:
 
-![Sample icons](https://raw.githubusercontent.com/roughike/BottomBar/master/graphics/icons-howto.png)
+![Sample icons](https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/icons-howto.png)
 
 ### Adding items from XML resource
 
@@ -70,7 +60,7 @@ Then, add the BottomBar to your layout and give it a resource id for your tabs x
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomBar" />
 
-    <com.roughike.bottombar.BottomBar
+    <com.vlntdds.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -246,7 +236,7 @@ Specify a different layout for your activity in ```res/layout-sw600dp``` folder 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.roughike.bottombar.BottomBar
+    <com.vlntdds.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -285,7 +275,7 @@ Easy-peasy!
 
     </android.support.v4.widget.NestedScrollView>
 
-    <com.roughike.bottombar.BottomBar
+    <com.vlntdds.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -313,7 +303,7 @@ nearby.removeBadge/();
 ### For the BottomBar
 
 ```xml
-<com.roughike.bottombar.BottomBar
+<com.vlntdds.bottombar.BottomBar
     android:id="@+id/bottomBar"
     android:layout_width="match_parent"
     android:layout_height="60dp"
