@@ -24,7 +24,7 @@ public class IconsOnlyActivity extends Activity {
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId, @IdRes int oldTab) {
+            public void onTabSelected(@IdRes int tabId) {
                 messageView.setText(TabMessage.get(tabId, false));
             }
         });

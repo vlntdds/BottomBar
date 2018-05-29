@@ -24,7 +24,7 @@ public class ThreeTabsQRActivity extends AppCompatActivity {
         // from ThreeTabsActivity on how to use it.
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId, @IdRes int oldTab) {
+            public void onTabSelected(@IdRes int tabId) {
 
             }
         });
