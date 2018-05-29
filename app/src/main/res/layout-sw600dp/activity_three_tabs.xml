@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.roughike.bottombar.BottomBar
+    <com.vlntdds.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

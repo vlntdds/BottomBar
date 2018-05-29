@@ -5,8 +5,8 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
+import com.vlntdds.bottombar.BottomBar;
+import com.vlntdds.bottombar.OnTabSelectListener;
 
 /**
  * Created by iiro on 7.6.2016.
@@ -24,7 +24,7 @@ public class ThreeTabsQRActivity extends AppCompatActivity {
         // from ThreeTabsActivity on how to use it.
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId) {
+            public void onTabSelected(@IdRes int tabId, @IdRes int oldTab) {
 
             }
         });

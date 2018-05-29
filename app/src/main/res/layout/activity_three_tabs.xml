@@ -12,7 +12,7 @@
         android:gravity="center"
         android:text="Hi mom!" />
 
-    <com.roughike.bottombar.BottomBar
+    <com.vlntdds.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"

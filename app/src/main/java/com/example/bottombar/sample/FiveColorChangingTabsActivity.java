@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
-import com.roughike.bottombar.OnTabSelectListener;
+import com.vlntdds.bottombar.BottomBar;
+import com.vlntdds.bottombar.OnTabReselectListener;
+import com.vlntdds.bottombar.OnTabSelectListener;
 
 /**
  * Created by iiro on 7.6.2016.
@@ -27,7 +27,7 @@ public class FiveColorChangingTabsActivity extends AppCompatActivity {
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId) {
+            public void onTabSelected(@IdRes int tabId, @IdRes int oldTab) {
                 messageView.setText(TabMessage.get(tabId, false));
             }
         });

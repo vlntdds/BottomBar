@@ -1,6 +1,6 @@
 /*
  * BottomBar library for Android
- * Copyright (c) 2016 Iiro Krankka (http://github.com/roughike).
+ * Copyright (c) 2016 Iiro Krankka (http://github.com/vlntdds).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by Iiro Krankka (http://github.com/roughike)
+ * Created by Iiro Krankka (http://github.com/vlntdds)
  */
 public class SampleFragment extends Fragment {
     private static final String ARG_TEXT = "ARG_TEXT";
