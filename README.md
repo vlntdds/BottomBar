@@ -1,14 +1,6 @@
-# BottomBar (Deprecated)
-
-I don't have time to maintain this anymore. I basically wrote the whole library in a rush, without tests, while being a serious expert beginner at the time. As a result, there's a lot of unpredictable moving parts and the tests probably aren't that great either. Don't really know, since I haven't touched this in ages.
-
-I'd recommend you to use the official BottomNavigationView from Google and urge them to implement the features you need. Or use another 3rd party library.
-
-If someone wants to pick up where I left off, make a fork of this, notify me and I'll link to your repo here.
-
 [![Build Status](https://travis-ci.org/roughike/BottomBar.svg?branch=master)](https://travis-ci.org/roughike/BottomBar) [![Coverage Status](https://coveralls.io/repos/github/roughike/BottomBar/badge.svg?branch=development)](https://coveralls.io/github/roughike/BottomBar?branch=master) [![Download](https://api.bintray.com/packages/roughike/maven/bottom-bar/images/download.svg)](https://bintray.com/roughike/maven/bottom-bar/_latestVersion)
 
-<img src="https://raw.githubusercontent.com/roughike/BottomBar/master/graphics/shy-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/roughike/BottomBar/master/graphics/shifting-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/roughike/BottomBar/master/graphics/screenshot_tablet.png" width="33%" />
+<img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/shy-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/shifting-demo.gif" width="30%" /> <img src="https://raw.githubusercontent.com/vlntdds/BottomBar/master/graphics/screenshot_tablet.png" width="33%" />
 
 ## Version 2.0 released!
 
@@ -27,26 +19,6 @@ If someone wants to pick up where I left off, make a fork of this, notify me and
 ## What?
 
 A custom view component that mimics the new [Material Design Bottom Navigation pattern](https://www.google.com/design/spec/components/bottom-navigation.html).
-
-## Does it work on my Grandpa Gary's HTC Dream?
-
-Nope. The minSDK version is **API level 11 (Honeycomb).**
-
-## Gimme that Gradle sweetness, pls?
-
-```groovy
-compile 'com.roughike:bottom-bar:2.3.1'
-```
-
-**Maven:**
-```xml
-<dependency>
-  <groupId>com.roughike</groupId>
-  <artifactId>bottom-bar</artifactId>
-  <version>2.3.1</version>
-  <type>pom</type>
-</dependency>
-```
 
 ## How?
 
@@ -252,7 +224,7 @@ Finally, set ```bb_behavior``` to include the ```underNavbar``` flag and you're 
 **activity_my_awesome.xml:**
 
 ```xml
-<com.roughike.bottombar.BottomBar
+<com.vlntdds.bottombar.BottomBar
     android:id="@+id/bottomBar"
     android:layout_width="match_parent"
     android:layout_height="56dp"
