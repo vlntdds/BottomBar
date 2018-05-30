@@ -5,20 +5,23 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.widget.FrameLayout;
 
+import com.vlntdds.bottombar.tab.BottomBarTab;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class BottomBarTabTest {
-    private FrameLayout tabContainer;
     private BottomBarTab tab;
 
     @Before
     public void setUp() {
-        tabContainer = new FrameLayout(InstrumentationRegistry.getContext());
+        FrameLayout tabContainer = new FrameLayout(InstrumentationRegistry.getContext());
         tab = new BottomBarTab(InstrumentationRegistry.getContext());
 
         tabContainer.addView(tab);
@@ -32,7 +35,7 @@ public class BottomBarTabTest {
 
     @Test(expected = IllegalStateException.class)
     public void setIsTitleless_WhenTrueAndIconDoesNotExist_ThrowsException() {
-        tab.setIsTitleless(true);
+        tab.setTitleless(true);
         assertEquals(R.layout.bb_bottom_bar_item_titleless, tab.getLayoutResource());
     }
 
@@ -51,16 +54,15 @@ public class BottomBarTabTest {
     @Test
     public void testSavedStateWithBadge_StaysIntact() {
         tab.setBadgeCount(5);
-        tab.setIndexInContainer(69);
-        assertEquals(69, tab.getIndexInTabContainer());
 
         Bundle savedState = (Bundle) tab.onSaveInstanceState();
-        assertEquals(5, savedState.getInt(BottomBarTab.STATE_BADGE_COUNT + 69));
+        assert savedState != null;
+        assertEquals(5, savedState.getInt("STATE_BADGE_COUNT_FOR_TAB_" + 69));
 
         tab.setBadgeCount(9);
-        assertEquals(9, tab.badge.getCount());
+        assertEquals(9, Objects.requireNonNull(tab.getBadge()).getCount());
 
         tab.onRestoreInstanceState(savedState);
-        assertEquals(5, tab.badge.getCount());
+        assertEquals(5, tab.getBadge().getCount());
     }
 }

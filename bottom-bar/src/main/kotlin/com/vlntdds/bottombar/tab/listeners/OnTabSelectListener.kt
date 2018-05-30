@@ -1,10 +1,14 @@
-package com.vlntdds.bottombar;
+package com.vlntdds.bottombar.tab.listeners
 
-import android.support.annotation.IdRes;
+import android.support.annotation.IdRes
+
+import com.vlntdds.bottombar.tab.BottomBarTab
 
 /*
  * BottomBar library for Android
- * Copyright (c) 2016 Iiro Krankka (http://github.com/vlntdds).
+ * Copyright (c) 2016 Iiro Krankka (http://github.com/roughike).
+ * Copyright (c) 2018 Eduardo Calazans Júnior (http://github.com/vlntdds).
+
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,15 +22,16 @@ import android.support.annotation.IdRes;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface OnTabSelectListener {
+
+interface OnTabSelectListener {
     /**
-     * The method being called when currently visible {@link BottomBarTab} changes.
+     * The method being called when currently visible [BottomBarTab] changes.
      *
      * This listener is fired for the first time after the items have been set and
      * also after a configuration change, such as when screen orientation changes
      * from portrait to landscape.
      *
-     * @param currentTabId the new visible {@link BottomBarTab}
+     * @param currentTabId the new visible [BottomBarTab]
      */
-    void onTabSelected(@IdRes int currentTabId);
+    fun onTabSelected(@IdRes currentTabId: Int)
 }

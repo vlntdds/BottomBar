@@ -6,7 +6,9 @@ import android.support.test.annotation.UiThreadTest;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.Assert;
+import com.vlntdds.bottombar.badge.BottomBarBadge;
+import com.vlntdds.bottombar.tab.BottomBarTab;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,10 +39,10 @@ public class BadgeTest {
 
     @Test
     public void hasNoBadges_ExceptNearby() {
-        assertNull(bottomBar.getTabWithId(com.vlntdds.bottombar.test.R.id.tab_favorites).badge);
-        assertNull(bottomBar.getTabWithId(com.vlntdds.bottombar.test.R.id.tab_friends).badge);
+        assertNull(bottomBar.getTabWithId(com.vlntdds.bottombar.test.R.id.tab_favorites).getBadge());
+        assertNull(bottomBar.getTabWithId(com.vlntdds.bottombar.test.R.id.tab_friends).getBadge());
 
-        assertNotNull(nearby.badge);
+        assertNotNull(nearby.getBadge());
     }
 
     @Test
@@ -50,7 +52,7 @@ public class BadgeTest {
             @Override
             public void run() {
                 bottomBar.selectTabWithId(com.vlntdds.bottombar.test.R.id.tab_nearby);
-                assertFalse(nearby.badge.isVisible());
+                assertFalse(nearby.getBadge().isVisible());
             }
         });
     }
@@ -59,29 +61,29 @@ public class BadgeTest {
     @UiThreadTest
     public void whenBadgeCountIsZero_BadgeIsRemoved() {
         nearby.setBadgeCount(0);
-        assertNull(nearby.badge);
+        assertNull(nearby.getBadge());
     }
 
     @Test
     @UiThreadTest
     public void whenBadgeCountIsNegative_BadgeIsRemoved() {
         nearby.setBadgeCount(-1);
-        assertNull(nearby.badge);
+        assertNull(nearby.getBadge());
     }
 
     @Test
     @UiThreadTest
     public void whenBadgeStateRestored_CountPersists() {
         nearby.setBadgeCount(1);
-        assertEquals(1, nearby.badge.getCount());
+        assertEquals(1, nearby.getBadge().getCount());
 
 
         int tabIndex = nearby.getIndexInTabContainer();
         Bundle savedInstanceState = new Bundle();
-        savedInstanceState.putInt(BottomBarTab.STATE_BADGE_COUNT + tabIndex, 2);
+        savedInstanceState.putInt(BottomBarTab.Companion.getSTATE_BADGE_COUNT() + tabIndex, 2);
         nearby.restoreState(savedInstanceState);
 
-        assertEquals(2, nearby.badge.getCount());
+        assertEquals(2, nearby.getBadge().getCount());
     }
 
     @Test
@@ -92,7 +94,7 @@ public class BadgeTest {
         assertTrue(nearby.getOuterView().getChildAt(1) instanceof BottomBarBadge);
 
         nearby.removeBadge();
-        assertNull(nearby.badge);
+        assertNull(nearby.getBadge());
         assertEquals(bottomBar.findViewById(R.id.bb_bottom_bar_item_container), nearby.getOuterView());
     }
 }

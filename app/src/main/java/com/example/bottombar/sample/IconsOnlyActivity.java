@@ -8,8 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vlntdds.bottombar.BottomBar;
-import com.vlntdds.bottombar.OnTabReselectListener;
-import com.vlntdds.bottombar.OnTabSelectListener;
+import com.vlntdds.bottombar.tab.listeners.OnTabReselectListener;
+import com.vlntdds.bottombar.tab.listeners.OnTabSelectListener;
 
 public class IconsOnlyActivity extends Activity {
     private TextView messageView;

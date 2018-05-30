@@ -27,6 +27,15 @@ import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.vlntdds.bottombar.badge.BadgeContainer
+import com.vlntdds.bottombar.behavior.BottomNavigationBehavior
+import com.vlntdds.bottombar.tab.BottomBarTab
+import com.vlntdds.bottombar.tab.listeners.OnTabReselectListener
+import com.vlntdds.bottombar.tab.listeners.OnTabSelectListener
+import com.vlntdds.bottombar.tab.listeners.TabSelectionInterceptor
+import com.vlntdds.bottombar.util.BatchTabPropertyApplier
+import com.vlntdds.bottombar.util.MiscUtils
+import com.vlntdds.bottombar.util.NavbarUtils
 
 import java.util.ArrayList
 
@@ -47,6 +56,7 @@ import java.util.ArrayList
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
 
     private var batchPropertyApplier: BatchTabPropertyApplier? = null
@@ -94,12 +104,12 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
     private var isComingFromRestoredState: Boolean = false
     private var ignoreTabReselectionListener: Boolean = false
     private var shySettings: ShySettings? = null
-    private var isShyHeightAlreadyCalculated: Boolean = false
+    internal var isShyHeightAlreadyCalculated: Boolean = false
     private var navBarAccountedHeightCalculated: Boolean = false
     private var currentTabs: Array<BottomBarTab?>? = null
     private val isShiftingMode: Boolean
         get() = !isTabletMode && hasBehavior(BEHAVIOR_SHIFTING)
-    private val isShy: Boolean
+    internal val isShy: Boolean
         get() = !isTabletMode && hasBehavior(BEHAVIOR_SHY)
     private val isIconsOnlyMode: Boolean
         get() = !isTabletMode && hasBehavior(BEHAVIOR_ICONS_ONLY)
@@ -307,7 +317,7 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
             }
 
             if (isIconsOnlyMode) {
-                bottomBarTab.setIsTitleless(true)
+                bottomBarTab.isTitleless = true
             }
 
             bottomBarTab.type = type
@@ -583,7 +593,6 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setInActiveTabAlpha(alpha: Float) {
         inActiveTabAlpha = alpha
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.inActiveAlpha = inActiveTabAlpha }
     }
 
@@ -592,13 +601,11 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setActiveTabAlpha(alpha: Float) {
         activeTabAlpha = alpha
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.activeAlpha = activeTabAlpha }
     }
 
     fun setInActiveTabColor(@ColorInt color: Int) {
         inActiveTabColor = color
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.inActiveColor = inActiveTabColor }
     }
 
@@ -607,7 +614,6 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setActiveTabColor(@ColorInt color: Int) {
         activeTabColor = color
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.activeColor = activeTabColor }
     }
 
@@ -616,7 +622,6 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setBadgeBackgroundColor(@ColorInt color: Int) {
         badgeBackgroundColor = color
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.badgeBackgroundColor = badgeBackgroundColor }
     }
 
@@ -626,7 +631,7 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setBadgesHideWhenActive(hideWhenSelected: Boolean) {
         hideBadgeWhenActive = hideWhenSelected
-        batchPropertyApplier!!.applyToAllTabs { tab -> tab.badgeHidesWhenActive = hideWhenSelected }
+        batchPropertyApplier!!.applyToAllTabs { tab -> tab.badgeHidesWhenActive = hideBadgeWhenActive }
     }
 
     /**
@@ -634,7 +639,6 @@ class BottomBar : LinearLayout, View.OnClickListener, View.OnLongClickListener {
      */
     fun setTabTitleTextAppearance(textAppearance: Int) {
         titleTextAppearance = textAppearance
-
         batchPropertyApplier!!.applyToAllTabs { tab -> tab.titleTextAppearance = titleTextAppearance }
     }
 

@@ -1,10 +1,14 @@
-package com.vlntdds.bottombar;
+package com.vlntdds.bottombar.tab.listeners
 
-import android.support.annotation.IdRes;
+import android.support.annotation.IdRes
+
+import com.vlntdds.bottombar.tab.BottomBarTab
 
 /*
  * BottomBar library for Android
- * Copyright (c) 2016 Iiro Krankka (http://github.com/vlntdds).
+ * Copyright (c) 2016 Iiro Krankka (http://github.com/roughike).
+ * Copyright (c) 2018 Eduardo Calazans Júnior (http://github.com/vlntdds).
+
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +22,14 @@ import android.support.annotation.IdRes;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface OnTabReselectListener {
+
+interface OnTabReselectListener {
     /**
-     * The method being called when currently visible {@link BottomBarTab} is
+     * The method being called when currently visible [BottomBarTab] is
      * reselected. Use this method for scrolling to the top of your content,
      * as recommended by the Material Design spec
      *
-     * @param tabId the {@link BottomBarTab} that was reselected.
+     * @param tabId the [BottomBarTab] that was reselected.
      */
-    void onTabReSelected(@IdRes int tabId);
+    fun onTabReSelected(@IdRes tabId: Int)
 }

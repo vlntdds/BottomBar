@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.vlntdds.bottombar.BottomBar;
-import com.vlntdds.bottombar.OnTabSelectListener;
+import com.vlntdds.bottombar.tab.listeners.OnTabSelectListener;
 
 /**
  * Created by iiro on 7.6.2016.
