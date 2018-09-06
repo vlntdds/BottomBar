@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/vlntdds/BottomBar'
     gitUrl = 'https://github.com/vlntdds/BottomBar.git'
 
-    libraryVersion = '2.3.8'
+    libraryVersion = '2.3.9'
 
     developerId = 'vlntdds'
     developerName = 'Eduardo Calazans Júnior'

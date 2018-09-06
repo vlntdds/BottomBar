@@ -562,6 +562,13 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
     }
 
     /**
+     * Returns last selected tab Id
+     */
+    public int getLastSelectedTabId() {
+        return lastTabSelected;
+    }
+
+    /**
      * Select the tab with the corresponding id.
      */
     public void selectTabWithId(@IdRes int tabResId) {
