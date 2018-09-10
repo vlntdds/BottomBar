@@ -985,7 +985,7 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
 
     private void updateSelectedTab(int newPosition) {
         int newTabId = getTabAtPosition(newPosition).getId();
-        lastTabSelected = getTabAtPosition(currentTabPosition).getId();
+        lastTabSelected = newTabId;
 
         if (newPosition != currentTabPosition) {
             if (onTabSelectListener != null) {
