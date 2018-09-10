@@ -391,6 +391,13 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
     }
 
     /**
+     * Empty the bottomBar last selected tab state
+     */
+    public void clearState() {
+        this.currentTabPosition = 0;
+    }
+
+    /**
      * Resize the bottombar after changing visibility of some tab.
      */
     public void resizeTabsToCorrectSizes() {
