@@ -608,10 +608,6 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
         BottomBarTab oldTab = getCurrentTab();
         BottomBarTab newTab = getTabAtPosition(position);
 
-        if (oldTab.getId() != lastTabSelected) {
-            lastTabSelected = oldTab.getId();
-        }
-
         oldTab.deselect(animate);
         newTab.select(animate);
 
@@ -1002,6 +998,7 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
             if (onTabSelectListener != null) {
                 onTabSelectListener.onTabSelected(newTabId);
             }
+            lastTabSelected = getCurrentTab().getId();
         } else if (onTabReselectListener != null && !ignoreTabReselectionListener) {
             onTabReselectListener.onTabReSelected(newTabId);
         }
