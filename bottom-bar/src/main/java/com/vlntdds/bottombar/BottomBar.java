@@ -564,9 +564,9 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
      */
     public void goToLastSelectedTab() {
         if (lastTabSelected != 0) {
-            selectTabWithId(lastTabSelected);
+            handleClick(getTabWithId(lastTabSelected));
         } else {
-            selectTabAtPosition(0);
+            handleClick(getTabAtPosition(0));
         }
     }
 
@@ -591,7 +591,7 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
      * @param position the position to select.
      */
     public void selectTabAtPosition(int position) {
-        selectTabAtPosition(position, false);
+        handleClick(getTabAtPosition(position));
     }
 
     /**
@@ -1001,6 +1001,8 @@ public class BottomBar extends LinearLayout implements View.OnClickListener, Vie
             lastTabSelected = getCurrentTab().getId();
         } else if (onTabReselectListener != null && !ignoreTabReselectionListener) {
             onTabReselectListener.onTabReSelected(newTabId);
+        } else {
+            lastTabSelected = 0;
         }
 
         currentTabPosition = newPosition;
